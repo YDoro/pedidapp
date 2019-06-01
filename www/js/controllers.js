@@ -2,6 +2,9 @@ angular.module('starter').controller('HomeController', function ($scope, Produto
     ProdutosService.lista().then(function (dados) {
         $scope.bolos = dados;
     });
+    $scope.$on('produtos-atualizados',	function(event,	dados) {
+        $scope.bolos	=	dados;
+});
 });
 
 
@@ -10,7 +13,7 @@ angular.module('starter').controller('DetalheController', function ($scope, Prod
         $scope.bolo = dados[$stateParams.boloId];
     });
 });
-
+ 
 
 angular.module('starter').controller('PedidoController', function ($scope, $stateParams, $state, $http, $ionicPopup, $ionicLoading, ProdutosService) {
 
